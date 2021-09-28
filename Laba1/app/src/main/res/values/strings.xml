@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Laba1</string>
+    <string name="info_text">Select company name and product type.</string>
+    <string name="samsung">Samsung</string>
+    <string name="sony">Sony</string>
+    <string name="lg">LG</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="select_company_name">Select company name:</string>
+    <string name="select_product_type">Select product type:</string>
+    <string name="mobile_phone">Mobile phone</string>
+    <string name="television">Television</string>
+    <string name="headphones">Headphones</string>
+</resources>
