@@ -6,115 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/selectedInfo"
-        android:layout_width="338dp"
-        android:layout_height="85dp"
-        android:text="@string/info_text"
-        android:textColor="#2C1D47"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/selectCompanyTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnOk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="105dp"
-        android:text="@string/btn_ok"
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnCancel"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="105dp"
-        android:text="@string/btn_cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/selectCompanyTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="@string/select_company_name"
-        app:layout_constraintBottom_toTopOf="@+id/companiesNames"
-        app:layout_constraintEnd_toStartOf="@+id/selectproductTypeTextView"
-        app:layout_constraintHorizontal_bias="0.569"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioGroup
-        android:id="@+id/productTypes"
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="70dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/companiesNames">
-
-        <RadioButton
-            android:id="@+id/mobilePhone"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/mobile_phone" />
-
-        <RadioButton
-            android:id="@+id/television"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/television" />
-
-        <RadioButton
-            android:id="@+id/headphones"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/headphones" />
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/companiesNames"
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="70dp"
-        android:layout_marginStart="55dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnOk"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <RadioButton
-            android:id="@+id/samsung"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/samsung" />
-
-        <RadioButton
-            android:id="@+id/sony"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/sony" />
-
-        <RadioButton
-            android:id="@+id/lg"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/lg" />
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/selectproductTypeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/select_product_type"
-        app:layout_constraintBottom_toTopOf="@+id/productTypes"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

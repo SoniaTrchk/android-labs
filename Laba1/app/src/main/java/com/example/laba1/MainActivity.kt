@@ -1,43 +1,38 @@
-package com.example.laba1
+package com.example.lab1
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Toast
+import com.example.laba1.R
+import com.example.laba1.fragments.InputFragment
+import com.example.laba1.fragments.OutputFragment
 
-class MainActivity : AppCompatActivity() {
-    @SuppressLint("SetTextI18n")
+class MainActivity : AppCompatActivity(), InputFragment.OnTextSent {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val infoText:TextView = findViewById(R.id.selectedInfo)
-        val selectCompany:RadioGroup = findViewById(R.id.companiesNames)
-        val selectProduct:RadioGroup = findViewById(R.id.productTypes)
-        val btnOk:Button = findViewById(R.id.btnOk)
-        val btnCancel:Button = findViewById(R.id.btnCancel)
+        val inputFragment = InputFragment()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, inputFragment)
+            .commit()
+    }
 
-         btnOk.setOnClickListener {
-             if (selectCompany.checkedRadioButtonId != -1 && selectProduct.checkedRadioButtonId != -1){
-                 val selectedCompanyId:Int = selectCompany.checkedRadioButtonId
-                 val selectedCompany:RadioButton = findViewById(selectedCompanyId)
-                 val selectedProductId:Int = selectProduct.checkedRadioButtonId
-                 val selectedProduct:RadioButton = findViewById(selectedProductId)
-                 infoText.text = "Company: " + selectedCompany.text +
-                         "\nProduct type: " + selectedProduct.text
-             }else{
-                 Toast.makeText(
-                     applicationContext,
-                     "Company name and product type must be selected",Toast.LENGTH_LONG)
-                     .show();
-             }
-         }
+    override fun sendData(selectedItems: String, companyIsSelected: Boolean,
+                          productIsSelected: Boolean) {
+        val outputFragment = OutputFragment()
+        val bundle = Bundle()
 
-        btnCancel.setOnClickListener {
-            selectCompany.clearCheck()
-            selectProduct.clearCheck()
-            infoText.text = "Select company name and product type."
+        if (companyIsSelected && productIsSelected){
+            bundle.putString("selectedItems", selectedItems)
+            outputFragment.arguments = bundle
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, outputFragment).addToBackStack(null).commit()
+        }else{
+            Toast.makeText(
+                applicationContext,
+                "Company name and product type must be selected",Toast.LENGTH_LONG)
+                .show();
         }
-
     }
 }
